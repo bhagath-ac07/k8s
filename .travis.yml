@@ -9,14 +9,14 @@ script:
     - docker run -e CI=true bhagath/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t bhagath/multi-client ./client
-    - docker build -t bhagath/multi-nginx ./nginx
-    - docker build -t bhagath/multi-server ./server
-    - docker build -t bhagath/multi-worker ./worker
+    - docker build -t bhagathac/multi-client ./client
+    - docker build -t bhagathac/multi-nginx ./nginx
+    - docker build -t bhagathac/multi-server ./server
+    - docker build -t bhagathac/multi-worker ./worker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push bhagath/multi-client
-    - docker push bhagath/multi-nginx
-    - docker push bhagath/multi-server
-    - docker push bhagath/multi-worker
+    - docker push bhagathac/multi-client
+    - docker push bhagathac/multi-nginx
+    - docker push bhagathac/multi-server
+    - docker push bhagathac/multi-worker
 
 
