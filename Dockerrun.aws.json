@@ -9,7 +9,7 @@
         },
         {
             "name" : "server",
-            "image" : "bhagathac/multi-serer",
+            "image" : "bhagathac/multi-server",
             "hostname": "api",
             "essential": false,
             "memory": 128
