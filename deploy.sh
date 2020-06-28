@@ -11,4 +11,4 @@ docker push bhagathac/multi-worker:$SHA
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=bhagathac/multi-server:$SHA
 kubectl set image deployments/client-deployment client=bhagathac/multi-client:$SHA
-kubectl set image deployments/worker-deployment sworkererver=bhagathac/multi-worker:$SHA
+kubectl set image deployments/worker-deployment worker=bhagathac/multi-worker:$SHA
