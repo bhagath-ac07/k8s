@@ -12,6 +12,7 @@ function App() {
         <header className="App-header">
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other page</Link>
+          <p>Kubernetes</p>
         </header>
         <div>
           <Route exact path="/" component={Fib} />
