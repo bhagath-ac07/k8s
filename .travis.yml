@@ -1,6 +1,10 @@
 sudo: required
 services:
     - docker
+env:
+    global:
+        - SHA=$(git rev-parse HEAD)
+        - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
     - openssl aes-256-cbc -K $encrypted_9130ae34a93d_key -iv $encrypted_9130ae34a93d_iv -in simple-k8s-281705-af4d48f505c7.json.enc -out simple-k8s-281705-af4d48f505c7.json -d
     - curl https://sdk.cloud.google.com | bash > /dev/null;
@@ -14,3 +18,8 @@ before_install:
     - docker build -t bhagathac/react-test -f ./client/Dockerfile.dev ./client
 script:
     - docker run -e CI=true bhagathac/react-test npm run test
+deploy:
+    provider: script
+    script: bash ./deploy.sh
+    on:
+        branch: master
